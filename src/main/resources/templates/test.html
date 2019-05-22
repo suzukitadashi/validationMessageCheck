@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Test</title>
+
+</head>
+<body>
+
+	<form th:action="@{test}" th:object="${testForm}">
+
+		<div>
+			value: <input type="text" th:field="*{value}" />
+		</div>
+
+		<button type="submit" name="submit">Submit</button>
+
+		<div th:if="${#fields.hasAnyErrors()}" >
+			<p th:each="err : ${#fields.allErrors()}" th:text="${err}">...</p>
+		</div>
+
+	</form>
+
+</body>
+</html>
